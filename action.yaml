@@ -1,6 +1,6 @@
 name: 'Setup Git Config'
 description: 'Setup git config'
-author: 'qoomon'
+author: 'rhighs'
 branding:
   icon: git-commit
   color: black
