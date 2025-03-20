@@ -3,94 +3,74 @@ on:
     branches:
       - main
   workflow_dispatch:
-
 jobs:
   bot:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: ./
-
       - run: |
           date > dummy.txt
           git add dummy.txt
           git commit -m "chore: update dummy"
           # git push
-          
       - name: Commit User
         run: |
           echo "user.name:  $(git log -1 --pretty=format:'%an')"
           echo "user.email: $(git log -1 --pretty=format:'%ae')"
-
   actor:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: ./
         with:
           user: actor
-
       - run: |
           date > dummy.txt
           git add dummy.txt
           git commit -m "chore: update dummy"
           # git push
-          
       - name: Commit User
         run: |
           echo "user.name:  $(git log -1 --pretty=format:'%an')"
           echo "user.email: $(git log -1 --pretty=format:'%ae')"
-
   commit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: ./
         with:
           user: committer
-          
       - run: |
           date > dummy.txt
           git add dummy.txt
           git commit -m "chore: update dummy"
           # git push
-          
       - name: Commit User
         run: |
           echo "user.name:  $(git log -1 --pretty=format:'%an')"
           echo "user.email: $(git log -1 --pretty=format:'%ae')"
-
   explicit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: ./
         with:
           user: John Doe <john.doe@example.com>
-          
       - run: |
           date > dummy.txt
           git add dummy.txt
           git commit -m "chore: update dummy"
           # git push
-          
       - name: Commit User
         run: |
           echo "user.name:  $(git log -1 --pretty=format:'%an')"
           echo "user.email: $(git log -1 --pretty=format:'%ae')"
-
   invalid:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: ./
         with:
           user: invalid
         continue-on-error: true
-          
-      

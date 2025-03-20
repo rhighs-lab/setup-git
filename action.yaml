@@ -26,7 +26,7 @@ runs:
 
         user_name=
         user_email=
-        
+
         case "$INPUT_USER" in
           bot)
             user_name='github-actions[bot]'
@@ -57,14 +57,12 @@ runs:
           && echo "user.name:  ${user_name}"
         git config --global user.email "$user_email" \
           && echo "user.email: ${user_email}"
-        
     - name: Setup Push Config
       shell: bash
       run: |
         # Setup Push Config
 
         push_autoSetupRemote=true
-        
+
         git config --global push.autoSetupRemote "$push_autoSetupRemote" \
           && echo "push.autoSetupRemote: ${push_autoSetupRemote}"
-
