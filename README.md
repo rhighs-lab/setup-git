@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: rhighs/setup-git@v1
+      - uses: rhighs-lab/setup-git@v1
         with:
           user: bot
 
